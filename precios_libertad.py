@@ -1,5 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.chrome.options import Options
 from openpyxl import load_workbook
 import time
 import datetime
@@ -7,8 +8,15 @@ from datetime import datetime, timedelta
 import pandas as pd
 from selenium.webdriver.support.ui import Select
 import numpy as np
+import pandas as pd
+import gspread
+import df2gspread as d2g
+import pygsheets
 
-driver = webdriver.Chrome(executable_path=r"E:/Omar/FRONTERA/proyecto python/WebScraping/ChromeDriver/chromedriver.exe")
+options = Options()
+options.add_argument("--headless")
+
+driver = webdriver.Chrome(executable_path=r'chromedriver.exe', options=options)
 driver.get("https://www.hiperlibertad.com.ar")
 driver.maximize_window()
 time.sleep(5)
